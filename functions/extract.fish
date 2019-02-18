@@ -20,7 +20,10 @@ function extract --description "Expand or extract bundled & compressed files"
     case zip
       unzip $argv[1]
     case xz
-      unxz $argv[1]
+      if test (echo $argv[1] | awk -F. '{print $(NF-1)}') = tar  # tar bundle compressed with xz
+        tar -Jxf $argv[1]
+      else  # single gzip
+        unxz $argv[1]
     case '*'
       echo "unknown extension"
   end
