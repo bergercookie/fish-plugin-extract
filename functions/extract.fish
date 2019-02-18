@@ -24,6 +24,7 @@ function extract --description "Expand or extract bundled & compressed files"
         tar -Jxf $argv[1]
       else  # single xz
         unxz $argv[1]
+      end
     case '*'
       echo "unknown extension"
   end
