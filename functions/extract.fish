@@ -32,6 +32,8 @@ function extract --description "Expand or extract bundled & compressed files" --
       else  # single xz
         unxz $archive_
       end
+    case 7z
+      7z e $archive_
     case '*'
       echo "Unknown extension [$ext], bailing out"
   end
