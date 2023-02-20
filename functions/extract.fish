@@ -25,6 +25,7 @@ function extract --description "Expand or extract bundled & compressed files" --
     case rar
       unrar x $archive_
     case zip
+    case whl
       unzip $archive_
     case xz
       if test (echo $archive_ | awk -F. '{print $(NF-1)}') = tar  # tar bundle compressed with xz
