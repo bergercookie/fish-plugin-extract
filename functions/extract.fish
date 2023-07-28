@@ -35,6 +35,8 @@ function extract --description "Expand or extract bundled & compressed files" --
       end
     case 7z
       7z e $archive_
+    case deb
+      dpkg-deb --extract $archive_ (basename $archive_ .deb)
     case '*'
       echo "Unknown extension [$ext], bailing out"
   end
