@@ -22,9 +22,12 @@ function extract --description "Expand or extract bundled & compressed files" --
       tar -zxvf $archive_
     case bz2  # tar compressed with bzip2
       tar -jxvf $archive_
+    case tbz2
+      tar -xvf  $archive_
     case rar
       unrar x $archive_
     case zip
+      unzip $archive_
     case whl
       unzip $archive_
     case xz
